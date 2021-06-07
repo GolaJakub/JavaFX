@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="Licznik kosztów netto" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <TableView prefHeight="200.0" prefWidth="843.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="stuffColumn" prefWidth="105.0" text="Nazwa towaru" />
+            <TableColumn fx:id="priceColumn" prefWidth="127.0" text="Cena towaru(brutto)" />
+            <TableColumn fx:id="taxColumn" minWidth="0.0" prefWidth="98.0" text="Stawka Vat" />
+            <TableColumn fx:id="amountColumn" minWidth="2.0" prefWidth="91.0" text="Ilość sztuk" />
+            <TableColumn fx:id="taxScaleColumn" prefWidth="120.0" text="Skala podatkowa" />
+            <TableColumn fx:id="valueColumn" prefWidth="202.0" text="Wartość netto dla przedsiębiorcy" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="stuffField" prefHeight="25.0" prefWidth="108.0" promptText="Nazwa towaru" />
+            <TextField fx:id="priceField" prefHeight="25.0" prefWidth="120.0" promptText="Cena towaru(brutto)" />
+            <ComboBox fx:id="taxBox" prefHeight="25.0" prefWidth="102.0" promptText="Stawka Vat">
+             <items>
+             <FXCollections fx:factory="observableArrayList">
+                 <String fx:id="0" fx:value="0%" />
+                 <String fx:id="23" fx:value="23%" />
+             </FXCollections>
+            </items>
+            </ComboBox>
+            <Spinner fx:id="amountSpinner" editable="true" prefHeight="25.0" prefWidth="99.0" />
+            <ComboBox fx:id="taxScaleBox" prefHeight="25.0" prefWidth="143.0" promptText="Skala podatkowa">
+             <items>
+                 <FXCollections fx:factory="observableArrayList">
+                     <String fx:id="18" fx:value="18%" />
+                     <String fx:id="19" fx:value="19%" />
+                     <String fx:id="32" fx:value="32%" />
+                 </FXCollections>
+             </items>
+            </ComboBox>
+            <Button fx:id="countButton" alignment="CENTER" mnemonicParsing="false" onAction="#countNetto" text="Oblicz" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
